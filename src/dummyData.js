@@ -48,3 +48,32 @@ export const userData = [
     "Active user": 5000,
   },
 ];
+export const userRows = [
+  {
+    id: 1,
+    username: "Snow",
+    avatar:
+      "https://images.pexels.com/photos/4823242/pexels-photo-4823242.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    email: "ab@gmail.com",
+    status: "active",
+    transaction: "$343",
+  },
+  {
+    id: 2,
+    username: "Snow",
+    avatar:
+      "https://images.pexels.com/photos/4823242/pexels-photo-4823242.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    email: "ab@gmail.com",
+    status: "active",
+    transaction: "$343",
+  },
+  {
+    id: 3,
+    username: "Snow",
+    avatar:
+      "https://images.pexels.com/photos/4823242/pexels-photo-4823242.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    email: "ab@gmail.com",
+    status: "active",
+    transaction: "$343",
+  },
+];

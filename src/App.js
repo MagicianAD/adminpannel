@@ -3,8 +3,8 @@ import Topbar from "./components/topbar/Topbar";
 import "./app.css";
 import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
-import User from "./pages/userList/Userlist";
-
+import UserList from "./pages/userList/Userlist";
+import User from "./pages/user/User";
 function App() {
   return (
     <Router>
@@ -15,7 +15,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/users">
+          <Route exact path="/users">
+            <UserList />
+          </Route>
+          <Route path="/user/:userid">
+            {/* after user it can be anything*/}
             <User />
           </Route>
         </Switch>

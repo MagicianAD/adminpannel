@@ -1,16 +1,22 @@
-import React from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./userlist.css";
 import { DataGrid } from "@mui/x-data-grid";
-
+import { DeleteOutline } from "@material-ui/icons";
+import { userRows } from "../../dummyData";
 function Userlist() {
+  const [data, setdata] = useState(userRows);
+  const deleteHandler = (id) => {
+    setdata(data.filter((items) => items.id !== id)); //filter function{delete data}
+  };
+
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
 
     {
       field: "user",
       headerName: "User",
-      width: 150,
+      width: 160,
       renderCell: (params) => {
         return (
           <div className="Userlistuser">
@@ -23,13 +29,13 @@ function Userlist() {
     {
       field: "email",
       headerName: "Email ",
-      width: 150,
+      width: 190,
       editable: true,
     },
     {
       field: "status",
       headerName: "Status",
-      width: 110,
+      width: 120,
       editable: true,
     },
     {
@@ -41,45 +47,35 @@ function Userlist() {
       //       params.getValue(params.id, "lastName") || ""
       //     }`,
     },
-  ];
 
-  const rows = [
     {
-      id: 1,
-      username: "Snow",
-      avatar:
-        "https://images.pexels.com/photos/4823242/pexels-photo-4823242.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-      email: "ab@gmail.com",
-      status: "active",
-      transaction: "$343",
-    },
-    {
-      id: 2,
-      username: "Snow",
-      avatar:
-        "https://images.pexels.com/photos/4823242/pexels-photo-4823242.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-      email: "ab@gmail.com",
-      status: "active",
-      transaction: "$343",
-    },
-    {
-      id: 3,
-      username: "Snow",
-      avatar:
-        "https://images.pexels.com/photos/4823242/pexels-photo-4823242.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-      email: "ab@gmail.com",
-      status: "active",
-      transaction: "$343",
+      field: "action",
+      headerName: "Action",
+      width: 150,
+      renderCell: (params) => {
+        //to use custom inside MUI grid
+        return (
+          <>
+            {" "}
+            <Link to={"/user/" + params.row.id}>
+              <button className="userlistededit">Edit</button>
+            </Link>
+            <DeleteOutline
+              className="userlistedelete"
+              onClick={() => deleteHandler(params.row.id)}
+            />
+          </>
+        );
+      },
     },
   ];
 
   return (
     <div className="userlist">
       <DataGrid
-        rows={rows}
+        rows={data}
         columns={columns}
         pageSize={5}
-        rowsPerPageOptions={[5]}
         checkboxSelection
         disableSelectionOnClick
       />

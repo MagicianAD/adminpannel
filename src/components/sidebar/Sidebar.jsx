@@ -11,7 +11,9 @@ import {
   MailOutline,
   DynamicFeed,
   ChatBubbleOutline,
+  NoEncryption,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 function sidebar() {
   return (
@@ -38,12 +40,24 @@ function sidebar() {
           <h3 className="sidebarTitle">Quick menu</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem ">
-              <PersonOutline />
-              User
+              <Link
+                style={{ textDecoration: "none" }}
+                className="link"
+                to="/users"
+              >
+                <PersonOutline />
+                User
+              </Link>
             </li>
             <li className="sidebarListItem ">
-              <CardTravel />
-              Production
+              <Link
+                style={{ textDecoration: "none" }}
+                className="link"
+                to="/products"
+              >
+                <CardTravel />
+                Production
+              </Link>
             </li>
             <li className="sidebarListItem ">
               <SignalCellularAlt />

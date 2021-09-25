@@ -1,5 +1,6 @@
 import "./user.css";
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   CalendarToday,
   LocationSearching,
@@ -13,7 +14,9 @@ function User() {
     <div className="user">
       <div className="usertitleContainer">
         <h1 className="userTitle">Edit </h1>
-        <button className="userAddButton">Create</button>
+        <Link to="/NewUser">
+          <button className="userAddButton">Create</button>
+        </Link>
       </div>
       <div className="userContainer">
         <div className="userShow">

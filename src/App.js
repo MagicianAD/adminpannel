@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import UserList from "./pages/userList/Userlist";
 import User from "./pages/user/User";
+import Newuser from "./pages/newuser/NewUser";
 function App() {
   return (
     <Router>
@@ -15,12 +16,16 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/users">
+          <Route path="/users">
             <UserList />
           </Route>
           <Route path="/user/:userid">
             {/* after user it can be anything*/}
             <User />
+          </Route>
+          <Route path="/NewUser">
+            {/* after user it can be anything*/}
+            <Newuser />
           </Route>
         </Switch>
       </div>

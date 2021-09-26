@@ -11,10 +11,8 @@ import {
   MailOutline,
   DynamicFeed,
   ChatBubbleOutline,
-  NoEncryption,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-
 function sidebar() {
   return (
     <div className="sidebar">
